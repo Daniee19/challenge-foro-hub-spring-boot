@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvnw.cmd spring-boot:run:*)",
+      "Bash(C:/Users/danie/Downloads/forohub/forohub/mvnw.cmd spring-boot:run)",
+      "Bash(C:/Users/danie/Downloads/forohub/forohub/mvnw.cmd:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}
