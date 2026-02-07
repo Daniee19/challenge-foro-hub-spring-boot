@@ -20,9 +20,11 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -56,5 +58,38 @@ public class Topico {
         this.fechaCreacion = LocalDateTime.now();
         this.status = "activo";
         this.respuestas = new ArrayList<>();
+    }
+
+    public Topico(ActualizarTopicoDTO actualizarTopicoDTO) {
+        this.titulo = actualizarTopicoDTO.titulo();
+        this.mensaje = actualizarTopicoDTO.mensaje();
+        this.status = actualizarTopicoDTO.estado();
+    }
+
+    public void actualizarTopico(ActualizarTopicoDTO actualizarTopicoDTO) {
+        if (actualizarTopicoDTO.titulo() != null) {
+            this.titulo = actualizarTopicoDTO.titulo();
+        }
+        if (actualizarTopicoDTO.mensaje() != null) {
+            this.mensaje = actualizarTopicoDTO.mensaje();
+        }
+        if (actualizarTopicoDTO.estado() != null) {
+            this.status = actualizarTopicoDTO.estado();
+        }
+    }
+
+    public void actualizarTopicoConCurso(ActualizarTopicoDTO a, Curso curso) {
+        if (a.titulo() != null) {
+            this.titulo = a.titulo();
+        }
+        if (a.mensaje() != null) {
+            this.mensaje = a.mensaje();
+        }
+        if (a.estado() != null) {
+            this.status = a.estado();
+        }
+        if (a.cursoId() != null) {
+            this.curso = curso;
+        }
     }
 }
